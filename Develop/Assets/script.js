@@ -1,3 +1,5 @@
+myStorage = window.localStorage;
+
 const dayElement = document.getElementById("currentDay")
 dayElement.innerText=new Date().toLocaleDateString('en', {weekday: "long" , month: 'long', day: "numeric" })
 
@@ -42,8 +44,12 @@ function loadSchedule() {
     const hour = parseInt(el.getAttribute('data-hour'), 10);
     const description = schedule[hour];
 
-    // document.getElementById(... for the description).innerText = description
+    document.getElementById("description").innerText=description
   }
 }
+
+//Saving on click
+document.getElementById("sav-btn").addEventListener("click", saveScheduleItem)
+
 
 loadSchedule();
