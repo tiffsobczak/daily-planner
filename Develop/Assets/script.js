@@ -10,11 +10,11 @@ for (el of hourElements) {
   const currentHour = moment().hour();
 
   if (hour < currentHour) {
-    el.style.backgroundColor = 'grey';
+    el.style.backgroundColor = '#d3d3d3';
   } else if (hour === currentHour) {
-    el.style.backgroundColor = 'red';
+    el.style.backgroundColor = '#ff6961';
   } else if (hour > currentHour) {
-    el.style.backgroundColor = 'green';
+    el.style.backgroundColor = '#77dd77';
   }
 }
 
@@ -47,9 +47,6 @@ function loadSchedule() {
     document.getElementById("description").innerText=description
   }
 }
-
-//Saving on click
-document.getElementById("sav-btn").addEventListener("click", saveScheduleItem)
 
 
 loadSchedule();
