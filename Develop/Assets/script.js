@@ -18,17 +18,19 @@ for (el of hourElements) {
   }
 }
 
-function saveScheduleItem(hour, description) {
-  const rawSchedule = localStorage.getItem('schedule');
+function saveScheduleItem(hour) {
+  const descriptionElement = document.getElementById("description-" +hour )
   let schedule = {};
+  const rawSchedule = localStorage.getItem('schedule');
+  
 
   if (rawSchedule !== undefined) {
     schedule = JSON.parse(rawSchedule);
   }
-
-  schedule[hour] = description;
+  schedule[hour] = descriptionElement.value;
 
   localStorage.setItem('schedule', JSON.stringify(schedule));
+
   loadSchedule();
 }
 
@@ -42,11 +44,10 @@ function loadSchedule() {
 
   for (el of hourElements) {
     const hour = parseInt(el.getAttribute('data-hour'), 10);
-    const description = schedule[hour];
+    const descriptionElement = document.getElementById("description-" +hour )
 
-    document.getElementById("description").innerText=description
+    descriptionElement.value=schedule[hour]
   }
 }
-
 
 loadSchedule();
